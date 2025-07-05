@@ -1,0 +1,9 @@
+version: '2.35'
+
+services:
+  myapp:
+    build:
+      context: .
+    ports:
+      - '5500:5500'
+    container_name: 'myapp'
