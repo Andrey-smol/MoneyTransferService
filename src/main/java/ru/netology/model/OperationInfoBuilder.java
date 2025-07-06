@@ -1,5 +1,11 @@
 package ru.netology.model;
 
+/**
+ * Интерфейс для создания паттерна Builder для объекта OperationInfo.
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 public interface OperationInfoBuilder {
     OperationInfoBuilder setOperationId(String operationId);
     OperationInfoBuilder setCardDebitNumber(String cardDebitNumber); //карта списания

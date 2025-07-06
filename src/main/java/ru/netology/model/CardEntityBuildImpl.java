@@ -3,6 +3,12 @@ package ru.netology.model;
 import java.util.Arrays;
 import java.util.Optional;
 
+/**
+ * Это класс строитель для объекта CardEntity
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 public class CardEntityBuildImpl implements CardEntityBuilder{
     private Currency currency = Currency.RUB;
     private String cardNumber;

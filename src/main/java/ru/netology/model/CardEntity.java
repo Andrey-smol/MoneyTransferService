@@ -5,13 +5,34 @@ import lombok.Data;
 
 import java.util.Objects;
 
+/**
+ * Этот класс хранит данные о карте
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 @Data
 @AllArgsConstructor
 public class CardEntity {
+    /**
+     * Код валюты.
+     */
     private Currency currency;
+    /**
+     * Номер карты.
+     */
     private String cardNumber;
+    /**
+     * Срок действия карты
+     */
     private String cardValidTill;
+    /**
+     * CVV номер.
+     */
     private String cardCVV;
+    /**
+     * Сумма на карте.
+     */
     private int balance;
 
     public CardEntity(CardEntity other){

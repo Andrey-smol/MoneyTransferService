@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 //import org.testcontainers.shaded.org.checkerframework.checker.units.qual.A;
+import ru.netology.mapperDTO.Mapper;
 import ru.netology.model.CardEntity;
 import ru.netology.model.Currency;
 import ru.netology.model.OperationId;
@@ -23,9 +24,10 @@ import java.util.stream.Stream;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CardRepositoryImplTest {
 
-    private final Map<String, CardEntity> cardList = new ConcurrentHashMap<>();
+    private final Map<String, CardEntityStorage> cardList = new ConcurrentHashMap<>();
     private CardStorage cardStorage;
     private CardRepository cardRepository;
+    private Mapper mapper;
 
     public static Stream<Arguments> testSave() {
         return Stream.of(
@@ -84,14 +86,25 @@ public class CardRepositoryImplTest {
 
     @BeforeEach
     public void init(){
-        cardList.put("1234567812345678", new CardEntity(Currency.RUB, "1234567812345678", "12/30", "235", 500000));
-        cardList.put("2341567812345678", new CardEntity(Currency.RUB, "2341567812345678", "12/30", "230", 500000));
-        cardList.put("3241567812345678", new CardEntity(Currency.EUR, "3241567812345678", "12/30", "236", 500000));
-        cardList.put("4321567812345678", new CardEntity(Currency.USD, "4321567812345678", "12/30", "239", 500000));
-        cardList.put("2143567812345678", new CardEntity(Currency.CNY, "2143567812345678", "12/30", "237", 500000));
+        cardList.put("1234567812345678",
+                new CardEntityStorage(Currency.RUB, "1234567812345678", "12/30", "235", 500000,
+                        StatusCardStory.ACTIVE));
+        cardList.put("2341567812345678",
+                new CardEntityStorage(Currency.RUB, "2341567812345678", "12/30", "230", 500000,
+                        StatusCardStory.ACTIVE));
+        cardList.put("3241567812345678",
+                new CardEntityStorage(Currency.EUR, "3241567812345678", "12/30", "236", 500000,
+                        StatusCardStory.ACTIVE));
+        cardList.put("4321567812345678",
+                new CardEntityStorage(Currency.USD, "4321567812345678", "12/30", "239", 500000,
+                        StatusCardStory.ACTIVE));
+        cardList.put("2143567812345678",
+                new CardEntityStorage(Currency.CNY, "2143567812345678", "12/30", "237", 500000,
+                        StatusCardStory.ACTIVE));
         cardStorage = Mockito.mock(CardStorage.class);
         Mockito.when(cardStorage.getCardList()).thenReturn(cardList);
-        cardRepository = new CardRepositoryImpl(cardStorage);
+        mapper = new Mapper(); //Mockito.mock(Mapper.class);
+        cardRepository = new CardRepositoryImpl(cardStorage, mapper);
     }
 
 
@@ -122,7 +135,7 @@ public class CardRepositoryImplTest {
     public void testUpdateBalance(CardEntity card, Optional<CardEntity> expected){
 
         Optional<CardEntity> result = cardRepository.findByCardEntity(card);
-        //Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, result);
     }
 
     @ParameterizedTest

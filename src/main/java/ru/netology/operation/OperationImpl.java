@@ -13,20 +13,53 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * Класс который реализует интерфейс Operation
+ *
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 @Component
 public class OperationImpl implements Operation {
-    //коллекция карт с которых осуществляется перевод денег
+
+    /**
+     * коллекция Set<String> карт с которых осуществляется перевод денег.
+     */
     private final Set<String> cardsDebit = ConcurrentHashMap.newKeySet();
+    /**
+     * Ссылка на объект записывающий логи операций.
+     */
     private final OperationLogger operationLogger;
+    /**
+     * Ссылка на хранилище операций и их уникального номера.
+     */
     private final OperationStorage operationStorage;
+    /**
+     * Управление пуллом потоков для отслеживания операций.
+     */
     private final ExecutorService pool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
 
+    /**
+     * Конструктор
+     *
+     * @param operationStorage  хранилище операций
+     * @param operationLogger   логирование операций
+     * @return
+     */
     @Autowired
     public OperationImpl(OperationStorage operationStorage, OperationLogger operationLogger) {
         this.operationLogger = operationLogger;
         this.operationStorage = operationStorage;
     }
 
+    /**
+     * добавление новой операции
+     *
+     * @param operationEntity сущность хранящая данные о операции
+     * @return OperationId возвращает номер операции
+     * или null если не получилось создать новую операцию
+     */
     @Override
     public OperationId add(OperationEntity operationEntity) {
         if(checkingWithdrawalMoneyFromCard(operationEntity)){
@@ -45,18 +78,39 @@ public class OperationImpl implements Operation {
         return operationId;
     }
 
+    /**
+     * Получение сущности хранящей данные о операции по номеру
+     *
+     * @param id номер запрашиваемой операции в виде объекта OperationId
+     * @return Optional<OperationEntity> возвращает номер операции
+     * или пустой объект если ре удалось найти
+     */
     @Override
     public Optional<OperationEntity> getOperationById(OperationId id) {
         OperationEntity entity = operationStorage.getMap().get(Long.parseLong(id.getOperationId()));
         return (entity == null) ? Optional.empty() : Optional.of(entity);
     }
 
+    /**
+     * Получение статуса операции по номеру
+     *
+     * @param id номер запрашиваемой операции в виде объекта OperationId
+     * @return StatusOperation - возвращает в виде объекта StatusOperation
+     * или null если найти операцию не удалось
+     */
     @Override
     public StatusOperation getStatus(OperationId id) {
         OperationEntity entity = operationStorage.getMap().get(Long.parseLong(id.getOperationId()));
         return (entity == null) ? null : entity.getStatus();
     }
 
+    /**
+     * Установка статуса операции
+     *
+     * @param id номер запрашиваемой операции в виде объекта OperationId
+     * @param statusOperation тип статуса который над установить
+     * @return true - при успешном смене статуса, false - при ошибке
+     */
     @Override
     public boolean setStatus(OperationId id, StatusOperation statusOperation) {
         String oid = id.getOperationId();
@@ -71,12 +125,27 @@ public class OperationImpl implements Operation {
         return true;
     }
 
+    /**
+     * Удаление операции из хранилища
+     *
+     * @param id номер запрашиваемой операции в виде объекта OperationId
+     * @return возвращается удалённая сущность OperationEntity обёрнутая в Optional
+     * или если ошибка удаления Optional.empty()
+     */
     @Override
     public Optional<OperationEntity> removeById(OperationId id) {
         OperationEntity entity = operationStorage.getMap().remove(Long.parseLong(id.getOperationId()));
         return (entity == null) ? Optional.empty() : Optional.of(entity);
     }
 
+    /**
+     * Обновление сущности операции по id
+     *
+     * @param id номер запрашиваемой операции в виде объекта OperationId
+     * @param entity новая сущность для сохранения
+     * @return возвращается обновлённая сущность OperationEntity обёрнутая в Optional
+     * или если ошибка обновления Optional.empty()
+     */
     @Override
     public Optional<OperationEntity> updateById(OperationId id, OperationEntity entity) {
         String oid = id.getOperationId();
@@ -89,6 +158,14 @@ public class OperationImpl implements Operation {
         return Optional.empty();
     }
 
+
+    /**
+     * Получение статуса операции по id
+     *
+     * @param id номер запрашиваемой операции в виде long
+     * @return StatusOperation - возвращает в виде объекта StatusOperation
+     * или null если найти операцию не удалось
+     */
     @Override
     public StatusOperation getStatus(Long id) {
         OperationEntity entity = operationStorage.getMap().get(id);

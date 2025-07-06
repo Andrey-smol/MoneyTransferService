@@ -6,22 +6,43 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+/**
+ * Этот класс данных приходящих при POST запросе (/transfer) в RestController
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 @Data
 @AllArgsConstructor
 public class TransferMoneyDTO {
+    /**
+     * Ссылка на объкт Amount хранящий данные о сумме перевода и в какой валюте.
+     */
     private Amount amount;
+    /**
+     * Номер карты списания.
+     */
     @NotBlank(message = "Номер карты не может быть пустым")
     @Pattern(regexp = "^(\\d{16}|\\d{19})$", message = "Номер карты должен содержать 16 или 19 цифр")
     private String cardFromNumber;
 
+    /**
+     * Срок действия карты списания
+     */
     @NotBlank(message = "Дата истечения не может быть пустой")
     @Pattern(regexp = "^(0[1-9]|1[0-2])/[0-9]{2}$", message = "Дата истечения должна быть в формате MM/YY")
     private String cardFromValidTill;
 
+    /**
+     * CVV код карты списания
+     */
     @NotBlank(message = "CVV не может быть пустым")
     @Size(min = 3, max = 4, message = "CVV должен содержать 3 или 4 цифры")
     private String cardFromCVV;
 
+    /**
+     * Номер карты зачисления.
+     */
     @NotBlank(message = "Номер карты не может быть пустым")
     @Pattern(regexp = "^(\\d{16}|\\d{19})$", message = "Номер карты должен содержать 16 или 19 цифр")
     private String cardToNumber;

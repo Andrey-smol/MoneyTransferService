@@ -1,5 +1,11 @@
 package ru.netology.model;
 
+/**
+ * Это класс строитель для объекта OperationInfo
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 public class OperationInfoBuilderImpl implements OperationInfoBuilder{
     private String operationId;
     private String cardDebitNumber; //карта списания

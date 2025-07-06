@@ -1,10 +1,197 @@
-2025-07-05 11:19:37 [http-nio-5500-exec-3] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('c' (code 99)): was expecting double-quote to start field name]
-2025-07-05 11:21:57 [http-nio-5500-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('a' (code 97)): was expecting double-quote to start field name]
-2025-07-05 11:22:58 [http-nio-5500-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'cardFromNumber': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
-2025-07-05 11:23:53 [http-nio-5500-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('c' (code 99)): was expecting double-quote to start field name]
-2025-07-05 11:24:20 [http-nio-5500-exec-6] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('c' (code 99)): was expecting double-quote to start field name]
-2025-07-05 11:25:06 [http-nio-5500-exec-7] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input in field name]
-2025-07-05 11:29:29 [http-nio-5500-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('c' (code 99)): was expecting double-quote to start field name]
-2025-07-05 11:33:21 [http-nio-5500-exec-9] INFO  r.n.c.MoneyTransferController - doTransfer
-2025-07-05 11:34:58 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-07-05 11:34:58 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:07:37 [main] INFO  r.n.MoneyTransferServiceApplication - Starting MoneyTransferServiceApplication using Java 19.0.1 with PID 10432 (D:\Java\Projects_my\SpringBoot\MoneyTransferService\target\classes started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:07:37 [main] INFO  r.n.MoneyTransferServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:07:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 5500 (http)
+2025-07-06 07:07:38 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:07:38 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:07:38 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:07:38 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 662 ms
+2025-07-06 07:07:38 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:07:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 5500 (http) with context path '/'
+2025-07-06 07:07:38 [main] INFO  r.n.MoneyTransferServiceApplication - Started MoneyTransferServiceApplication in 1.423 seconds (process running for 1.776)
+2025-07-06 07:07:38 [main] INFO  r.n.MoneyTransferServiceApplication - Starting my application with 0 args.
+2025-07-06 07:07:39 [RMI TCP Connection(2)-192.168.1.2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-06 07:07:39 [RMI TCP Connection(2)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-06 07:07:39 [RMI TCP Connection(2)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-07-06 07:07:42 [http-nio-5500-exec-1] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 07:09:07 [http-nio-5500-exec-5] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 07:09:07 [http-nio-5500-exec-5] ERROR r.n.c.GlobalExceptionHandler - Не удалось создать операцию перевода
+2025-07-06 07:11:31 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:11:31 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:11:35 [main] INFO  r.n.MoneyTransferServiceApplication - Starting MoneyTransferServiceApplication using Java 19.0.1 with PID 17348 (D:\Java\Projects_my\SpringBoot\MoneyTransferService\target\classes started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:11:35 [main] INFO  r.n.MoneyTransferServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:11:36 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 5500 (http)
+2025-07-06 07:11:36 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:11:36 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:11:36 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:11:36 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 756 ms
+2025-07-06 07:11:36 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:11:36 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 5500 (http) with context path '/'
+2025-07-06 07:11:36 [main] INFO  r.n.MoneyTransferServiceApplication - Started MoneyTransferServiceApplication in 1.596 seconds (process running for 2.06)
+2025-07-06 07:11:36 [main] INFO  r.n.MoneyTransferServiceApplication - Starting my application with 0 args.
+2025-07-06 07:11:37 [RMI TCP Connection(4)-192.168.1.2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-06 07:11:37 [RMI TCP Connection(4)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-06 07:11:37 [RMI TCP Connection(4)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-07-06 07:11:41 [http-nio-5500-exec-1] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 07:13:22 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:13:22 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:13:27 [main] INFO  r.n.MoneyTransferServiceApplication - Starting MoneyTransferServiceApplication using Java 19.0.1 with PID 6572 (D:\Java\Projects_my\SpringBoot\MoneyTransferService\target\classes started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:13:27 [main] INFO  r.n.MoneyTransferServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:13:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 5500 (http)
+2025-07-06 07:13:28 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:13:28 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:13:28 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:13:28 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 669 ms
+2025-07-06 07:13:28 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:13:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 5500 (http) with context path '/'
+2025-07-06 07:13:28 [main] INFO  r.n.MoneyTransferServiceApplication - Started MoneyTransferServiceApplication in 1.422 seconds (process running for 1.828)
+2025-07-06 07:13:28 [main] INFO  r.n.MoneyTransferServiceApplication - Starting my application with 0 args.
+2025-07-06 07:13:29 [RMI TCP Connection(2)-192.168.1.2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-06 07:13:29 [RMI TCP Connection(2)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-06 07:13:29 [RMI TCP Connection(2)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-06 07:14:21 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:14:21 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:14:25 [main] INFO  r.n.MoneyTransferServiceApplication - Starting MoneyTransferServiceApplication using Java 19.0.1 with PID 9588 (D:\Java\Projects_my\SpringBoot\MoneyTransferService\target\classes started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:14:25 [main] INFO  r.n.MoneyTransferServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:14:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 5500 (http)
+2025-07-06 07:14:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:14:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:14:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:14:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 733 ms
+2025-07-06 07:14:26 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:14:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 5500 (http) with context path '/'
+2025-07-06 07:14:26 [main] INFO  r.n.MoneyTransferServiceApplication - Started MoneyTransferServiceApplication in 1.475 seconds (process running for 1.829)
+2025-07-06 07:14:26 [main] INFO  r.n.MoneyTransferServiceApplication - Starting my application with 0 args.
+2025-07-06 07:14:27 [RMI TCP Connection(1)-192.168.1.2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-06 07:14:27 [RMI TCP Connection(1)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-06 07:14:27 [RMI TCP Connection(1)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-07-06 07:15:18 [http-nio-5500-exec-1] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 07:15:58 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:15:58 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:16:29 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Starting MoneyTransferServiceApplicationTests using Java 19.0.1 with PID 12476 (started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:16:29 [main] INFO  r.n.MoneyTransferServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:16:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 0 (http)
+2025-07-06 07:16:30 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:16:30 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:16:30 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:16:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 958 ms
+2025-07-06 07:16:31 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:16:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 63810 (http) with context path '/'
+2025-07-06 07:16:31 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Started MoneyTransferServiceApplicationTests in 1.87 seconds (process running for 2.779)
+2025-07-06 07:16:31 [main] INFO  o.testcontainers.DockerClientFactory - Testcontainers version: 1.21.2
+2025-07-06 07:16:31 [main] INFO  o.t.d.DockerClientProviderStrategy - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2025-07-06 07:16:31 [main] INFO  o.t.d.DockerMachineClientProviderStrategy - docker-machine executable was not found on PATH ([C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common, C:\Program Files\Common Files\Oracle\Java\javapath, C:\Program Files (x86)\Common Files\Oracle\Java\java8path, C:\Program Files (x86)\Common Files\Oracle\Java\javapath, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR, C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\, C:\Program Files\Microsoft SQL Server\160\Tools\Binn\, C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\, C:\Program Files\Microsoft SQL Server\160\DTS\Binn\, C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\, C:\Program Files\Azure Data Studio\bin, c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn\, C:\Program Files\Java\jdk-22\bin, C:\Program Files\dotnet\, C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\, C:\Program Files\Git\cmd, C:\Program Files\Docker\Docker\resources\bin, C:\Program Files\nodejs\, C:\Users\Home-PC\AppData\Local\Programs\Python\Python313\Scripts\, C:\Users\Home-PC\AppData\Local\Programs\Python\Python313\, C:\Users\Home-PC\AppData\Local\Programs\Python\Launcher\, C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\bin, C:\Program Files\MySQL\MySQL Shell 8.0\bin\, C:\Users\Home-PC\AppData\Local\Microsoft\WindowsApps, C:\Program Files\Azure Data Studio\bin, C:\Program Files\JetBrains\IntelliJ IDEA 2023.1.1\bin, , C:\Users\Home-PC\AppData\Local\Programs\Microsoft VS Code\bin, D:\MyFiles\MiniGM, C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.1\bin, , C:\Users\Home-PC\AppData\Roaming\npm])
+2025-07-06 07:16:31 [main] ERROR o.t.d.DockerClientProviderStrategy - Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+2025-07-06 07:16:31 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:16:31 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:21:27 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Starting MoneyTransferServiceApplicationTests using Java 19.0.1 with PID 26552 (started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:21:27 [main] INFO  r.n.MoneyTransferServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:21:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 0 (http)
+2025-07-06 07:21:28 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:21:28 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:21:28 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:21:28 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1026 ms
+2025-07-06 07:21:28 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:21:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 64479 (http) with context path '/'
+2025-07-06 07:21:28 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Started MoneyTransferServiceApplicationTests in 1.951 seconds (process running for 3.529)
+2025-07-06 07:21:29 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:21:29 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:23:21 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Starting MoneyTransferServiceApplicationTests using Java 19.0.1 with PID 2620 (started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:23:21 [main] INFO  r.n.MoneyTransferServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:23:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 0 (http)
+2025-07-06 07:23:22 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:23:22 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:23:22 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:23:22 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1209 ms
+2025-07-06 07:23:23 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:23:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 64535 (http) with context path '/'
+2025-07-06 07:23:23 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Started MoneyTransferServiceApplicationTests in 2.232 seconds (process running for 3.145)
+2025-07-06 07:23:23 [main] INFO  o.testcontainers.DockerClientFactory - Testcontainers version: 1.21.2
+2025-07-06 07:23:23 [main] INFO  o.t.d.DockerClientProviderStrategy - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2025-07-06 07:23:23 [main] INFO  o.t.d.DockerClientProviderStrategy - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2025-07-06 07:23:23 [main] INFO  o.testcontainers.DockerClientFactory - Docker host IP address is localhost
+2025-07-06 07:23:23 [main] INFO  o.testcontainers.DockerClientFactory - Connected to docker: 
+  Server Version: 28.1.1
+  API Version: 1.49
+  Operating System: Docker Desktop
+  Total Memory: 7834 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+2025-07-06 07:23:23 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Pulling docker image: testcontainers/ryuk:0.12.0. Please be patient; this may take some time but only needs to be done once.
+2025-07-06 07:23:24 [main] INFO  o.t.utility.RegistryAuthLocator - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2025-07-06 07:23:25 [docker-java-stream--187353313] INFO  tc.testcontainers/ryuk:0.12.0 - Starting to pull image
+2025-07-06 07:23:25 [docker-java-stream--187353313] INFO  tc.testcontainers/ryuk:0.12.0 - Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+2025-07-06 07:23:26 [docker-java-stream--187353313] INFO  tc.testcontainers/ryuk:0.12.0 - Pulling image layers:  1 pending,  1 downloaded,  0 extracted, (0 bytes/? MB)
+2025-07-06 07:23:26 [docker-java-stream--187353313] INFO  tc.testcontainers/ryuk:0.12.0 - Pulling image layers:  1 pending,  1 downloaded,  1 extracted, (0 bytes/? MB)
+2025-07-06 07:23:26 [docker-java-stream--187353313] INFO  tc.testcontainers/ryuk:0.12.0 - Pulling image layers:  0 pending,  2 downloaded,  1 extracted, (6 MB/6 MB)
+2025-07-06 07:23:26 [docker-java-stream--187353313] INFO  tc.testcontainers/ryuk:0.12.0 - Pulling image layers:  0 pending,  2 downloaded,  2 extracted, (6 MB/6 MB)
+2025-07-06 07:23:26 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Image testcontainers/ryuk:0.12.0 pull took PT2.7697892S
+2025-07-06 07:23:26 [docker-java-stream--187353313] INFO  tc.testcontainers/ryuk:0.12.0 - Pull complete. 2 layers, pulled in 1s (downloaded 6 MB at 6 MB/s)
+2025-07-06 07:23:26 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Creating container for image: testcontainers/ryuk:0.12.0
+2025-07-06 07:23:26 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Container testcontainers/ryuk:0.12.0 is starting: 34819a4ce1534eca97a3263db9d984b711b7fad52dced42155c40d4e52174b3d
+2025-07-06 07:23:27 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Container testcontainers/ryuk:0.12.0 started in PT0.675395S
+2025-07-06 07:23:27 [main] INFO  o.t.utility.RyukResourceReaper - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2025-07-06 07:23:27 [main] INFO  o.testcontainers.DockerClientFactory - Checking the system...
+2025-07-06 07:23:27 [main] INFO  o.testcontainers.DockerClientFactory - ✔︎ Docker server version should be at least 1.6.0
+2025-07-06 07:23:27 [main] INFO  tc.myapp:latest - Pulling docker image: myapp:latest. Please be patient; this may take some time but only needs to be done once.
+2025-07-06 07:23:28 [docker-java-stream-1912815074] ERROR c.g.d.a.async.ResultCallbackTemplate - Error during callback
+com.github.dockerjava.api.exception.NotFoundException: Status 404: {"message":"pull access denied for myapp, repository does not exist or may require 'docker login'"}
+
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.execute(DefaultInvocationBuilder.java:241)
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.lambda$executeAndStream$1(DefaultInvocationBuilder.java:269)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2025-07-06 07:23:28 [docker-java-stream--463642313] ERROR c.g.d.a.async.ResultCallbackTemplate - Error during callback
+com.github.dockerjava.api.exception.NotFoundException: Status 404: {"message":"pull access denied for myapp, repository does not exist or may require 'docker login'"}
+
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.execute(DefaultInvocationBuilder.java:241)
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.lambda$executeAndStream$1(DefaultInvocationBuilder.java:269)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2025-07-06 07:23:28 [main] INFO  tc.myapp:latest - Pulling docker image: myapp:latest. Please be patient; this may take some time but only needs to be done once.
+2025-07-06 07:23:29 [docker-java-stream-1912815074] ERROR c.g.d.a.async.ResultCallbackTemplate - Error during callback
+com.github.dockerjava.api.exception.NotFoundException: Status 404: {"message":"pull access denied for myapp, repository does not exist or may require 'docker login'"}
+
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.execute(DefaultInvocationBuilder.java:241)
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.lambda$executeAndStream$1(DefaultInvocationBuilder.java:269)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2025-07-06 07:23:30 [docker-java-stream--463642313] ERROR c.g.d.a.async.ResultCallbackTemplate - Error during callback
+com.github.dockerjava.api.exception.NotFoundException: Status 404: {"message":"pull access denied for myapp, repository does not exist or may require 'docker login'"}
+
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.execute(DefaultInvocationBuilder.java:241)
+	at org.testcontainers.shaded.com.github.dockerjava.core.DefaultInvocationBuilder.lambda$executeAndStream$1(DefaultInvocationBuilder.java:269)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+2025-07-06 07:23:30 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:23:30 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 07:24:04 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Starting MoneyTransferServiceApplicationTests using Java 19.0.1 with PID 2312 (started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 07:24:04 [main] INFO  r.n.MoneyTransferServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 07:24:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 0 (http)
+2025-07-06 07:24:05 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 07:24:05 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 07:24:05 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 07:24:05 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1000 ms
+2025-07-06 07:24:05 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 07:24:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 64569 (http) with context path '/'
+2025-07-06 07:24:05 [main] INFO  r.n.MoneyTransferServiceApplicationTests - Started MoneyTransferServiceApplicationTests in 1.912 seconds (process running for 2.958)
+2025-07-06 07:24:05 [main] INFO  o.testcontainers.DockerClientFactory - Testcontainers version: 1.21.2
+2025-07-06 07:24:06 [main] INFO  o.t.d.DockerClientProviderStrategy - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2025-07-06 07:24:06 [main] INFO  o.t.d.DockerClientProviderStrategy - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2025-07-06 07:24:06 [main] INFO  o.testcontainers.DockerClientFactory - Docker host IP address is localhost
+2025-07-06 07:24:06 [main] INFO  o.testcontainers.DockerClientFactory - Connected to docker: 
+  Server Version: 28.1.1
+  API Version: 1.49
+  Operating System: Docker Desktop
+  Total Memory: 7834 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+2025-07-06 07:24:06 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Creating container for image: testcontainers/ryuk:0.12.0
+2025-07-06 07:24:06 [main] INFO  o.t.utility.RegistryAuthLocator - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2025-07-06 07:24:06 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Container testcontainers/ryuk:0.12.0 is starting: d29736d3fefbb9205d39e2a69803aea00acefba7177e81a0876917c26958af0e
+2025-07-06 07:24:06 [main] INFO  tc.testcontainers/ryuk:0.12.0 - Container testcontainers/ryuk:0.12.0 started in PT0.607393S
+2025-07-06 07:24:06 [main] INFO  o.t.utility.RyukResourceReaper - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2025-07-06 07:24:06 [main] INFO  o.testcontainers.DockerClientFactory - Checking the system...
+2025-07-06 07:24:06 [main] INFO  o.testcontainers.DockerClientFactory - ✔︎ Docker server version should be at least 1.6.0
+2025-07-06 07:24:06 [main] INFO  tc.app:latest - Creating container for image: app:latest
+2025-07-06 07:24:06 [main] INFO  tc.app:latest - Container app:latest is starting: a600d0244fb54669e18f31024c13a80f964a1cba6b862f60a6362fcbe04e4a1b
+2025-07-06 07:24:09 [main] INFO  tc.app:latest - Container app:latest started in PT2.8714841S
+2025-07-06 07:24:11 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 07:24:11 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete

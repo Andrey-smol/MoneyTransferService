@@ -11,10 +11,23 @@ import ru.netology.exception.ErrorInputDataException;
 import ru.netology.exception.ErrorTransferException;
 import ru.netology.model.ResponseError;
 
+/**
+ * Этот класс обработки исключений и
+ * предоставления глобальных обработчиков для контроллеров RESTful в приложении Spring
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
 
+    /**
+     * Метод обрабатывает исключения MethodArgumentNotValidException.class, выбрасываемые контроллерами
+     *
+     * @param ex обьект типа MethodArgumentNotValidException.class
+     * @return возвращает json объект в виде строки обёрнутый в ResponseEntity
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> catchResourceArgumentNotValidException(MethodArgumentNotValidException ex) {
         log.error("Ошибка валидации: " + ex.getMessage());
@@ -22,6 +35,12 @@ public class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Метод обрабатывает исключения ErrorConfirmationException.class, выбрасываемые контроллерами
+     *
+     * @param ex обьект типа ErrorConfirmationException.class
+     * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
+     */
     @ExceptionHandler(ErrorConfirmationException.class)
     public ResponseEntity<Object> catchResourceErrorConfirmationException(ErrorConfirmationException ex){
         log.error(ex.getMessage());
@@ -29,6 +48,12 @@ public class GlobalExceptionHandler {
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    /**
+     * Метод обрабатывает исключения ErrorTransferException.class, выбрасываемые контроллерами
+     *
+     * @param ex обьект типа ErrorTransferException.class
+     * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
+     */
     @ExceptionHandler(ErrorTransferException.class)
     public ResponseEntity<Object> catchResourceErrorTransferException(ErrorTransferException ex){
         log.error(ex.getMessage());
@@ -36,6 +61,12 @@ public class GlobalExceptionHandler {
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    /**
+     * Метод обрабатывает исключения ErrorInputDataException.class, выбрасываемые контроллерами
+     *
+     * @param ex обьект типа ErrorInputDataException.class
+     * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
+     */
     @ExceptionHandler(ErrorInputDataException.class)
     public ResponseEntity<Object> catchResourceErrorErrorInputDataException(ErrorInputDataException ex){
         log.error(ex.getMessage());
@@ -43,6 +74,12 @@ public class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Метод обрабатывает исключения NumberFormatException.class, выбрасываемые контроллерами
+     *
+     * @param ex обьект типа NumberFormatException.class
+     * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
+     */
     @ExceptionHandler(NumberFormatException.class)
     public ResponseEntity<Object> catchResourceNumberFormatException(NumberFormatException ex){
         log.error(ex.getMessage());

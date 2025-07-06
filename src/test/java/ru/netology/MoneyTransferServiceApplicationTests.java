@@ -1,7 +1,6 @@
 package ru.netology;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -28,7 +27,7 @@ class MoneyTransferServiceApplicationTests {
     @Autowired
     private TestRestTemplate restTemplate;
     @Container
-    private static final GenericContainer<?> myContainer = new GenericContainer<>("myapp")
+    private static final GenericContainer<?> myContainer = new GenericContainer<>("app")
             .withExposedPorts(5500);
 
     private Integer port;
@@ -36,27 +35,27 @@ class MoneyTransferServiceApplicationTests {
     public static Stream<Arguments> testDoTransfer() {
         return Stream.of(
                 Arguments.of(new TransferMoneyDTO(new Amount(Currency.RUB, 100),
-                        "1234567812345678", "12/30", "235", "2341567812345678"),
+                                "1234567812345678", "12/30", "235", "2341567812345678"),
                         new OperationId("1"),
                         HttpStatus.OK),
                 Arguments.of(new TransferMoneyDTO(new Amount(Currency.RUB, 100),
-                        "3241567812345678", "12/30", "236", "4321567812345678"),
+                                "3241567812345678", "12/30", "236", "4321567812345678"),
                         new OperationId("2"),
                         HttpStatus.OK),
                 Arguments.of(new TransferMoneyDTO(new Amount(Currency.RUB, 100),
-                        "1234567812345678", "12/30", "235", "2341567812345678"),
+                                "1234567812345678", "12/30", "235", "2341567812345678"),
                         new OperationId("3"),
                         HttpStatus.INTERNAL_SERVER_ERROR),
                 Arguments.of(new TransferMoneyDTO(new Amount(Currency.RUB, 100),
-                        "1234567812345670", "12/30", "235", "2341567812345678"),
+                                "1234567812345670", "12/30", "235", "2341567812345678"),
                         null,
                         HttpStatus.BAD_REQUEST),
                 Arguments.of(new TransferMoneyDTO(new Amount(Currency.RUB, 100),
-                        "2143567812345678", "12/30", "235", "2341567812345670"),
+                                "2143567812345678", "12/30", "235", "2341567812345670"),
                         null,
                         HttpStatus.BAD_REQUEST),
                 Arguments.of(new TransferMoneyDTO(new Amount(Currency.RUB, 100),
-                        "2143567812345678", "12/30", "239", "2341567812345678"),
+                                "2143567812345678", "12/30", "239", "2341567812345678"),
                         null,
                         HttpStatus.BAD_REQUEST)
 
@@ -73,16 +72,16 @@ class MoneyTransferServiceApplicationTests {
     @ParameterizedTest
     @MethodSource
     @Order(2)
-    public void testDoTransfer(TransferMoneyDTO transferMoneyDTO, OperationId expected, HttpStatusCode statusCode){
+    public void testDoTransfer(TransferMoneyDTO transferMoneyDTO, OperationId expected, HttpStatusCode statusCode) {
         ResponseEntity<OperationId> response = restTemplate.postForEntity("http://localhost:" + port + "/transfer", transferMoneyDTO, OperationId.class);
 
-        if(response.getBody().getOperationId() == null){
+        if (response.getBody().getOperationId() == null) {
             ResponseEntity<ResponseError> responseError = restTemplate.postForEntity("http://localhost:" + port + "/transfer", transferMoneyDTO, ResponseError.class);
             ResponseError result = responseError.getBody();
 
             System.out.println("[testDoTransfer] Response ERROR: id = " + result.getId() + ", message = " + result.getMessage());
             Assertions.assertEquals(statusCode, responseError.getStatusCode());
-        }else {
+        } else {
             OperationId result = new OperationId(response.getBody().getOperationId());
 
             Assertions.assertEquals(expected, result);
@@ -93,20 +92,19 @@ class MoneyTransferServiceApplicationTests {
     @ParameterizedTest
     @MethodSource
     @Order(3)
-    public void testConfirmOperation(ConfirmOperation confirmOperation, OperationId expected, HttpStatusCode statusCode){
+    public void testConfirmOperation(ConfirmOperation confirmOperation, OperationId expected, HttpStatusCode statusCode) {
 
         ResponseEntity<OperationId> response = restTemplate.postForEntity("http://localhost:" + port + "/confirmOperation", confirmOperation, OperationId.class);
-        if(response.getBody().getOperationId() == null){
+        if (response.getBody().getOperationId() == null) {
             ResponseEntity<ResponseError> response1 = restTemplate.postForEntity("http://localhost:" + port + "/confirmOperation", confirmOperation, ResponseError.class);
             ResponseError result = response1.getBody();
 
             System.out.println("[testConfirmOperation] Response ERROR: id = " + result.getId() + ", message = " + result.getMessage());
-        }else {
+        } else {
             Assertions.assertEquals(expected, response.getBody());
         }
         Assertions.assertEquals(statusCode, response.getStatusCode());
     }
-
 
     public Stream<Arguments> testConfirmOperation() {
         return Stream.of(
@@ -129,17 +127,3 @@ class MoneyTransferServiceApplicationTests {
     }
 }
 
-
-//curl -X POST 'http://localhost:8080/books' \
-
-//curl --location --request POST 'http://localhost:8080/books' \
-//        --header 'Content-Type: application/json' \
-//        --data-raw '{
-//        "id": 4,
-//        "title": "Fundamentals of Software Architecture: An Engineering Approach",
-//        "author": "Mark Richards, Neal Ford",
-//        "publisher": "Upfront Books",
-//        "releaseDate": "Feb 2021",
-//        "isbn": "B08X8H15BW",
-//        "topic": "Architecture"
-//        }'

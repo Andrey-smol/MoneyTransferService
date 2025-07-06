@@ -16,12 +16,30 @@ import ru.netology.repository.CardRepository;
 
 import java.util.Optional;
 
+/**
+ * Класс реализующий бизнес логику приложения
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 @Service
 @Slf4j
 public class MoneyTransferService {
+    /**
+     * Ссылка на mapper.
+     */
     private final Mapper mapper;
+    /**
+     * Ссылка на хранилище карт.
+     */
     private final CardRepository cardRepository;
+    /**
+     * Ссылка на Component реализующий операции с картами.
+     */
     private final Operation operation;
+    /**
+     * Ссылка на конвертер валют по курсу.
+     */
     private final CurrencyConverter converter;
 
     @Autowired
@@ -32,6 +50,19 @@ public class MoneyTransferService {
         this.converter = converter;
     }
 
+    /**
+     * Метод бизнес логики, проверка данных карт, подготовка транзакции и
+     * получение id для операции
+     *
+     * @param transferMoneyDTO сущность хранящая данные транзакции,
+     * входные данные преобразованные из json и переданные контроллером на обработку
+     * @return OperationId возвращает номер операции
+     * @throws ErrorTransferException - Не удалось сделать конвертацию валют для операции
+     * Операция прервалась, из-за внутренней ошибки
+     * Не удалось создать операцию перевода
+     * @throws ErrorInputDataException - На карте не достаточно средств,
+     * Карты с данным номером нет или она не действительна
+     */
     public OperationId doTransfer(TransferMoneyDTO transferMoneyDTO) {
         if("RUR".equals(transferMoneyDTO.getAmount().getCurrency())){
             transferMoneyDTO.getAmount().setCurrency("RUB");
@@ -55,6 +86,7 @@ public class MoneyTransferService {
                 //карты есть начинаем операцию с картами, получаем id
                 OperationEntity operationEntity = new OperationEntity(cardEntityTo, cardEntityFrom, amount, 0, StatusOperation.START);
                 id = operation.add(operationEntity);
+                System.out.println("карты есть начинаем операцию с картами, получаем id = " + id);
                 if(id == null){
                     throw new ErrorTransferException("Не удалось создать операцию перевода");
                 }
@@ -92,6 +124,15 @@ public class MoneyTransferService {
         return id;
     }
 
+    /**
+     * Метод бизнес логики подтверждение транзакции
+     *
+     * @param confirmOperation сущность для подтверждения операции,
+     * входные данные преобразованные из json и переданные контроллером на обработку
+     * @return OperationId возвращает номер операции
+     * @throws ErrorConfirmationException - Не верный код операции
+     * Не верный код верификации для операции
+     */
     public OperationId confirmOperation(ConfirmOperation confirmOperation) {
         if (VerificationCode.getVerificationCode().equals(confirmOperation.getCode())) {
             OperationId operationId = new OperationId(confirmOperation.getOperationId());
@@ -107,6 +148,18 @@ public class MoneyTransferService {
         return new OperationId(confirmOperation.getOperationId());
     }
 
+    /**
+     * Внутренний метод перевода средств
+     *
+     * @param entity сущность хранящая данные операции,
+     * @param id номер операции
+     * @return
+     * @throws ErrorConfirmationException - Операция прервалась из-за внутренней ошибки,
+     * Операция прервалась, ошибка при снятии денег с карты,
+     * Не удалось сделать конвертацию валют,
+     * Операция прервалась, ошибка при переводе денег на карту,
+     * Данный перевод с идентификатором закрыт
+     */
     private void transfer(OperationId id, OperationEntity entity) {
         if(entity.getStatus() == StatusOperation.IN_PROGRESS) {
             //снимаем деньги со счета

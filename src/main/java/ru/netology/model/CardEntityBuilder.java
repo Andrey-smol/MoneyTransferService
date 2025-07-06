@@ -1,5 +1,11 @@
 package ru.netology.model;
 
+/**
+ * Интерфейс для создания паттерна Builder для объекта CardEntity.
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 public interface CardEntityBuilder {
     CardEntityBuilder setCurrency(String currency);
     CardEntityBuilder setCardNumber(String cardNumber);

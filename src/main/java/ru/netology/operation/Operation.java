@@ -6,6 +6,12 @@ import ru.netology.model.StatusOperation;
 
 import java.util.Optional;
 
+/**
+ * Интерфейс описывающий API для объекта хранящего данные о операциях.
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 public interface Operation {
     OperationId add(OperationEntity operationEntity);
 

@@ -1,5 +1,12 @@
 package ru.netology.model;
 
+/**
+ * Это перечисление хранит виды состояний
+ * которые могут быть при выполнении операции перевода денег
+ *
+ * @author Андрей Кузавов
+ * @version 1.0
+ */
 public enum StatusOperation {
     DONE_ERROR("ERROR"),
     START("START"),
