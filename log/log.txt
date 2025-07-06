@@ -929,3 +929,27 @@ Caused by: java.lang.NullPointerException: null
 2025-07-06 10:13:55 [http-nio-5500-exec-5] INFO  r.n.c.MoneyTransferController - doTransfer
 2025-07-06 10:15:05 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
 2025-07-06 10:15:05 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-06 12:35:16 [main] INFO  r.n.MoneyTransferServiceApplication - Starting MoneyTransferServiceApplication using Java 19.0.1 with PID 32532 (D:\Java\Projects_my\SpringBoot\MoneyTransferService\target\classes started by Home-PC in D:\Java\Projects_my\SpringBoot\MoneyTransferService)
+2025-07-06 12:35:16 [main] INFO  r.n.MoneyTransferServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 12:35:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 5500 (http)
+2025-07-06 12:35:17 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-06 12:35:17 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-06 12:35:17 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-06 12:35:17 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 742 ms
+2025-07-06 12:35:18 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-07-06 12:35:18 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 5500 (http) with context path '/'
+2025-07-06 12:35:18 [main] INFO  r.n.MoneyTransferServiceApplication - Started MoneyTransferServiceApplication in 1.548 seconds (process running for 1.971)
+2025-07-06 12:35:18 [main] INFO  r.n.MoneyTransferServiceApplication - Starting my application with 0 args.
+2025-07-06 12:35:18 [RMI TCP Connection(2)-192.168.1.2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-06 12:35:18 [RMI TCP Connection(2)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-06 12:35:18 [RMI TCP Connection(2)-192.168.1.2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-06 12:35:26 [http-nio-5500-exec-1] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 12:37:15 [http-nio-5500-exec-5] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 12:37:15 [http-nio-5500-exec-5] ERROR r.n.c.GlobalExceptionHandler - Карты с данным номером [1234567812345679] нет или она не действительна
+2025-07-06 12:38:03 [http-nio-5500-exec-6] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 12:38:03 [http-nio-5500-exec-6] ERROR r.n.c.GlobalExceptionHandler - Карты с данным номером [1234567812345679] нет или она не действительна
+2025-07-06 12:38:15 [http-nio-5500-exec-8] INFO  r.n.c.MoneyTransferController - doTransfer
+2025-07-06 12:39:06 [http-nio-5500-exec-2] ERROR r.n.c.GlobalExceptionHandler - Не верный код верификации для операции [2]
+2025-07-06 12:39:43 [http-nio-5500-exec-3] ERROR r.n.c.GlobalExceptionHandler - Данный перевод с идентификатором 2 закрыт
+2025-07-06 12:40:19 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-06 12:40:19 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
