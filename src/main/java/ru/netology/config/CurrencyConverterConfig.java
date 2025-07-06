@@ -23,7 +23,7 @@ public class CurrencyConverterConfig {
      * @return CurrencyConverter
      */
     @Bean
-    public CurrencyConverter currencyConverter(RestTemplate restTemplate){
+    public CurrencyConverter currencyConverter(RestTemplate restTemplate) {
         return new CurrencyConverterImpl(restTemplate);
     }
 
@@ -34,7 +34,7 @@ public class CurrencyConverterConfig {
      * @return RestTemplate
      */
     @Bean
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
 
         return new RestTemplate();
     }

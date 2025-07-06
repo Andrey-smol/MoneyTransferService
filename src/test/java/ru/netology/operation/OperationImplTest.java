@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class OperationImplTest{
+public class OperationImplTest {
 
     private OperationLogger logger;
     private OperationStorage operationStorage;
@@ -74,7 +74,7 @@ public class OperationImplTest{
     }
 
     @BeforeEach
-    public void init(){
+    public void init() {
         logger = Mockito.mock(OperationLogger.class);
         operationStorage = Mockito.mock(OperationStorage.class);
         Mockito.when(operationStorage.getId()).thenReturn(1L);
@@ -88,7 +88,7 @@ public class OperationImplTest{
 
     @Test
     @Order(1)
-    public void testAdd(){
+    public void testAdd() {
         OperationId expected = new OperationId("2");
 
         OperationId result = operation.add(operationEntity);
@@ -105,7 +105,7 @@ public class OperationImplTest{
     @ParameterizedTest
     @MethodSource
     @Order(2)
-    public void  testGetOperationById(OperationId id, Optional<OperationEntity> expected){
+    public void testGetOperationById(OperationId id, Optional<OperationEntity> expected) {
         Optional<OperationEntity> result = operation.getOperationById(id);
 
         Assertions.assertEquals(expected, result);
@@ -114,7 +114,7 @@ public class OperationImplTest{
     @ParameterizedTest
     @MethodSource
     @Order(3)
-    public void  testGetStatus(OperationId id, StatusOperation expected){
+    public void testGetStatus(OperationId id, StatusOperation expected) {
         StatusOperation result = operation.getStatus(id);
 
         Assertions.assertEquals(expected, result);
@@ -123,7 +123,7 @@ public class OperationImplTest{
     @ParameterizedTest
     @MethodSource
     @Order(4)
-    public void  testGetStatus_(Long id, StatusOperation expected){
+    public void testGetStatus_(Long id, StatusOperation expected) {
         StatusOperation result = operation.getStatus(id);
 
         Assertions.assertEquals(expected, result);
@@ -131,7 +131,7 @@ public class OperationImplTest{
 
     @ParameterizedTest
     @MethodSource
-    public void  testSetStatus(OperationId id, StatusOperation statusOperation, boolean expected){
+    public void testSetStatus(OperationId id, StatusOperation statusOperation, boolean expected) {
         boolean result = operation.setStatus(id, statusOperation);
 
         ArgumentCaptor<OperationInfo> argumentCaptor = ArgumentCaptor.forClass(OperationInfo.class);
@@ -145,7 +145,7 @@ public class OperationImplTest{
 
     @ParameterizedTest
     @MethodSource
-    public void  testUpdateById(OperationId id, OperationEntity entity, Optional<OperationEntity> expected){
+    public void testUpdateById(OperationId id, OperationEntity entity, Optional<OperationEntity> expected) {
 
         Optional<OperationEntity> result = operation.updateById(id, entity);
 

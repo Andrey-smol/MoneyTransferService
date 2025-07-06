@@ -10,14 +10,15 @@ import ru.netology.model.TransferMoneyDTO;
 
 public class MapperTest {
     TransferMoneyDTO transferMoneyDTO;
+
     @BeforeEach
-    public void init(){
+    public void init() {
         transferMoneyDTO = new TransferMoneyDTO(new Amount(Currency.RUB, 1000),
-                "1234567812345678","12/30", "235", "2341567812345678");
+                "1234567812345678", "12/30", "235", "2341567812345678");
     }
 
     @Test
-    public void testToEntity(){
+    public void testToEntity() {
         CardEntity expected = new CardEntity(Currency.RUB, "1234567812345678", "12/30", "235", 0);
         Mapper mapper = new Mapper();
         CardEntity result = mapper.toEntity(transferMoneyDTO);

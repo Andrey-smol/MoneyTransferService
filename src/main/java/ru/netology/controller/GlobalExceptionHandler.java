@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
      * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
      */
     @ExceptionHandler(ErrorConfirmationException.class)
-    public ResponseEntity<Object> catchResourceErrorConfirmationException(ErrorConfirmationException ex){
+    public ResponseEntity<Object> catchResourceErrorConfirmationException(ErrorConfirmationException ex) {
         log.error(ex.getMessage());
         return new ResponseEntity<>(getErrorResponse(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR),
                 HttpStatus.INTERNAL_SERVER_ERROR);
@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
      * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
      */
     @ExceptionHandler(ErrorTransferException.class)
-    public ResponseEntity<Object> catchResourceErrorTransferException(ErrorTransferException ex){
+    public ResponseEntity<Object> catchResourceErrorTransferException(ErrorTransferException ex) {
         log.error(ex.getMessage());
         return new ResponseEntity<>(getErrorResponse(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR),
                 HttpStatus.INTERNAL_SERVER_ERROR);
@@ -68,7 +68,7 @@ public class GlobalExceptionHandler {
      * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
      */
     @ExceptionHandler(ErrorInputDataException.class)
-    public ResponseEntity<Object> catchResourceErrorErrorInputDataException(ErrorInputDataException ex){
+    public ResponseEntity<Object> catchResourceErrorErrorInputDataException(ErrorInputDataException ex) {
         log.error(ex.getMessage());
         return new ResponseEntity<>(getErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST),
                 HttpStatus.BAD_REQUEST);
@@ -81,12 +81,13 @@ public class GlobalExceptionHandler {
      * @return возвращает json в виде строки, объекта ResponseError, обёрнутый в ResponseEntity
      */
     @ExceptionHandler(NumberFormatException.class)
-    public ResponseEntity<Object> catchResourceNumberFormatException(NumberFormatException ex){
+    public ResponseEntity<Object> catchResourceNumberFormatException(NumberFormatException ex) {
         log.error(ex.getMessage());
         return new ResponseEntity<>(getErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST),
                 HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    private ResponseError getErrorResponse(String msg, HttpStatus status){
+
+    private ResponseError getErrorResponse(String msg, HttpStatus status) {
         return new ResponseError(msg, status.value());
     }
 }

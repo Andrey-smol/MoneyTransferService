@@ -18,7 +18,7 @@ public class VerificationCode {
      *
      * @return верификационный код в виде строки
      */
-    public static String getVerificationCode(){
+    public static String getVerificationCode() {
         return VERIFICATION_CODE;
     }
 }

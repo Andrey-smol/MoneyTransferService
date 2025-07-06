@@ -38,16 +38,15 @@ public class CompletionOperationThread implements Runnable {
 
     @Override
     public void run() {
-        //System.out.println("Runnable id = " + operationId.getOperationId() + ", time = " + currentTimeInSeconds);
         while (operation.getStatus(operationId) != StatusOperation.DONE_ERROR && operation.getStatus(operationId) != StatusOperation.DONE_SUCCESSFUL) {
             if (System.currentTimeMillis() / 1000 - currentTimeInSeconds > 20) {
                 operation.setStatus(operationId, StatusOperation.DONE_ERROR);
-                //System.out.println("END id = " + operationId.getOperationId() + ", timeEnd = " + System.currentTimeMillis() / 1000);
                 break;
             }
             try {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {
+            }
         }
     }
 }

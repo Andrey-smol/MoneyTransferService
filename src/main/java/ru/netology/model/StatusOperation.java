@@ -16,11 +16,12 @@ public enum StatusOperation {
     DONE_SUCCESSFUL("DONE");
 
     private final String description;
-    StatusOperation(String description){
+
+    StatusOperation(String description) {
         this.description = description;
     }
 
-    public String getValue(){
+    public String getValue() {
         return description;
     }
 }

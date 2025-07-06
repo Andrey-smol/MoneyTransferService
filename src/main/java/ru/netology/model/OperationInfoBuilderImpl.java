@@ -6,13 +6,14 @@ package ru.netology.model;
  * @author Андрей Кузавов
  * @version 1.0
  */
-public class OperationInfoBuilderImpl implements OperationInfoBuilder{
+public class OperationInfoBuilderImpl implements OperationInfoBuilder {
     private String operationId;
     private String cardDebitNumber; //карта списания
     private String cardTransferNumber; //карта зачисления
     private Amount amount;
     private int commission = 0;
     private StatusOperation status;
+
     @Override
     public OperationInfoBuilder setOperationId(String operationId) {
         this.operationId = operationId;

@@ -85,7 +85,7 @@ public class CardRepositoryImplTest {
     }
 
     @BeforeEach
-    public void init(){
+    public void init() {
         cardList.put("1234567812345678",
                 new CardEntityStorage(Currency.RUB, "1234567812345678", "12/30", "235", 500000,
                         StatusCardStory.ACTIVE));
@@ -110,21 +110,21 @@ public class CardRepositoryImplTest {
 
     @ParameterizedTest
     @MethodSource
-    public void testSave(CardEntity cardEntity, CardEntity expected){
+    public void testSave(CardEntity cardEntity, CardEntity expected) {
         CardEntity result = cardRepository.save(cardEntity);
         Assertions.assertEquals(expected, result);
     }
 
     @ParameterizedTest
     @MethodSource
-    public void testFindByCardNumber(String number, Optional<CardEntity> expected){
+    public void testFindByCardNumber(String number, Optional<CardEntity> expected) {
         Optional<CardEntity> result = cardRepository.findByCardNumber(number);
         Assertions.assertEquals(expected, result);
     }
 
     @ParameterizedTest
     @MethodSource
-    public void testFindByCardEntity(CardEntity card, Optional<CardEntity> expected){
+    public void testFindByCardEntity(CardEntity card, Optional<CardEntity> expected) {
 
         Optional<CardEntity> result = cardRepository.findByCardEntity(card);
         Assertions.assertEquals(expected, result);
@@ -132,7 +132,7 @@ public class CardRepositoryImplTest {
 
     @ParameterizedTest
     @MethodSource
-    public void testUpdateBalance(CardEntity card, Optional<CardEntity> expected){
+    public void testUpdateBalance(CardEntity card, Optional<CardEntity> expected) {
 
         Optional<CardEntity> result = cardRepository.findByCardEntity(card);
         Assertions.assertEquals(expected, result);
@@ -140,7 +140,7 @@ public class CardRepositoryImplTest {
 
     @ParameterizedTest
     @MethodSource
-    public void testDelete(CardEntity card, Optional<CardEntity> expected){
+    public void testDelete(CardEntity card, Optional<CardEntity> expected) {
 
         Optional<CardEntity> result = cardRepository.delete(card);
         Assertions.assertEquals(expected, result);
@@ -148,7 +148,7 @@ public class CardRepositoryImplTest {
 
     @ParameterizedTest
     @MethodSource
-    public void testExistsByCardNumber(String number, boolean expected){
+    public void testExistsByCardNumber(String number, boolean expected) {
 
         boolean result = cardRepository.existsByCardNumber(number);
         Assertions.assertEquals(expected, result);

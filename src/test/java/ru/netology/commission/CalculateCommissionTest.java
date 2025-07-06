@@ -23,7 +23,7 @@ public class CalculateCommissionTest {
 
     @ParameterizedTest
     @MethodSource
-    public void testCalculate(double amount, Currency currency, double expected){
+    public void testCalculate(double amount, Currency currency, double expected) {
 
         double result = CalculateCommission.calculate(amount, currency);
         Assertions.assertEquals(expected, result);

@@ -37,7 +37,8 @@ public class Mapper {
                 card.getBalance(),
                 StatusCardStory.ACTIVE);
     }
-    public CardEntity toEntityFromStorage(CardEntityStorage cardEntityStorage){
+
+    public CardEntity toEntityFromStorage(CardEntityStorage cardEntityStorage) {
         return new CardEntityBuildImpl().setCurrency(cardEntityStorage.getCurrency().getCode())
                 .setCardCVV(cardEntityStorage.getCardCVV())
                 .setCardNumber(cardEntityStorage.getCardNumber())

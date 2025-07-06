@@ -24,14 +24,14 @@ public class CurrencyConverterImplTest {
     }
 
     @BeforeEach
-    public void init(){
+    public void init() {
         restTemplate = Mockito.mock(RestTemplate.class);
         converter = new MyCurrencyConverterImpl(restTemplate);
     }
 
     @ParameterizedTest
     @MethodSource
-    public void convertCurrency(Double amount, String fromCurrency, String toCurrency, Optional<Double> expected){
+    public void convertCurrency(Double amount, String fromCurrency, String toCurrency, Optional<Double> expected) {
         Optional<Double> result = converter.convertCurrency(amount, fromCurrency, toCurrency);
         Assertions.assertEquals(expected, result);
     }

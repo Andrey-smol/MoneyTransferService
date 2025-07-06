@@ -6,13 +6,13 @@ package ru.netology.exception;
  * @author Андрей Кузавов
  * @version 1.0
  */
-public class ErrorConfirmationException extends RuntimeException{
+public class ErrorConfirmationException extends RuntimeException {
     /**
      * Конструктор.
      *
      * @param msg сообщение передаваемое при генерации исключения
      */
-    public ErrorConfirmationException(String msg){
+    public ErrorConfirmationException(String msg) {
         super(msg);
     }
 }

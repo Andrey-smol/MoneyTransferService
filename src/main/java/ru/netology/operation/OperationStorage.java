@@ -12,6 +12,8 @@ import java.util.Map;
  */
 public interface OperationStorage {
     Map<Long, OperationEntity> getMap();
+
     long getId();
+
     long incrementId();
 }

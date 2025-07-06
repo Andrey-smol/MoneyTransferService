@@ -24,11 +24,11 @@ public class CalculateCommission {
     /**
      * Вычисляет комиссию
      *
-     * @param amount входные данные с которых надо вычислить комиссию
+     * @param amount   входные данные с которых надо вычислить комиссию
      * @param currency тип валюты входных данных
      * @return вычисленная комиссия
      */
-    public static double calculate(double amount, Currency currency){
+    public static double calculate(double amount, Currency currency) {
 
         return amount * (currency.getCode().equals(Currency.RUB.getCode()) ? COMMISSION_RUR : COMMISSION) / 100;
     }

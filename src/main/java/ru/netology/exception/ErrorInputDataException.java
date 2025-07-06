@@ -6,7 +6,7 @@ package ru.netology.exception;
  * @author Андрей Кузавов
  * @version 1.0
  */
-public class ErrorInputDataException extends RuntimeException{
+public class ErrorInputDataException extends RuntimeException {
     /**
      * Конструктор.
      *

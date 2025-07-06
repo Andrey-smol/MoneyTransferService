@@ -11,12 +11,11 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * Класс который реализует интерфейс OperationStorage
  *
- *
  * @author Андрей Кузавов
  * @version 1.0
  */
 @Component
-public class OperationStorageImpl implements OperationStorage{
+public class OperationStorageImpl implements OperationStorage {
     /**
      * ConcurrentHashMap<Long, OperationEntity> хранилище всех операций с уникальным ключём
      */
@@ -27,10 +26,10 @@ public class OperationStorageImpl implements OperationStorage{
     private final AtomicLong id = new AtomicLong(0);
 
     public OperationStorageImpl() {
-            Optional<Long> max = operationList.keySet().stream().max(Long::compareTo);
-            if(max.isPresent()){
-                id.set(max.get());
-            }
+        Optional<Long> max = operationList.keySet().stream().max(Long::compareTo);
+        if (max.isPresent()) {
+            id.set(max.get());
+        }
     }
 
     /**

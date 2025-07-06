@@ -25,7 +25,7 @@ public enum StatusCardStory {
      */
     EXPIRED,
     /**
-     *  Карта была заменена на новую
+     * Карта была заменена на новую
      */
     REPLACED
 

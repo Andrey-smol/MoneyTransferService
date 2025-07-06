@@ -1,8 +1,8 @@
 package ru.netology.logger;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-import ru.netology.common.CommonPatch;
 import ru.netology.model.OperationInfo;
 
 import java.io.*;
@@ -13,28 +13,30 @@ import java.time.LocalDateTime;
  * для записи логов в файл
  *
  * @author Андрей Кузавов
- * @version 1.0
+ * @version 1.1
  */
 @Slf4j
 @Component
+@ConfigurationProperties("log-operation")
 public class OperationLoggerImpl implements OperationLogger {
     /**
      * Строка указатель на путь к файлу логов
      */
-    private final String patchFile;
+    private String patchFile;
 
-    /**
-     * Конструктор без параметров,
-     * формирует строку путь к файлу и
-     * проверяет наличие файла
-     *
-     */
-    public OperationLoggerImpl() {
-        File file = new File(CommonPatch.WORK_DIR);
+    private String workDir;
+
+
+    public void setPatchFile(String patchFile) {
+        this.patchFile = patchFile;
+    }
+
+    public void setWorkDir(String workDir) {
+        File file = new File(workDir);
         if (!file.exists()) {
             file.mkdir();
         }
-        patchFile = CommonPatch.WORK_DIR + CommonPatch.PATCH_FILE_LOG_OPERATION;
+        this.workDir = workDir;
     }
 
     /**

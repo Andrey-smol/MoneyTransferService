@@ -18,8 +18,12 @@ public interface Operation {
     Optional<OperationEntity> getOperationById(OperationId id);
 
     StatusOperation getStatus(OperationId id);
+
     StatusOperation getStatus(Long id);
+
     boolean setStatus(OperationId id, StatusOperation statusOperation);
+
     Optional<OperationEntity> removeById(OperationId id);
+
     Optional<OperationEntity> updateById(OperationId id, OperationEntity entity);
 }

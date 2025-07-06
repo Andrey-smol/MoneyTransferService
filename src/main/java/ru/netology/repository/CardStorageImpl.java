@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @version 1.0
  */
 @Component
-public class CardStorageImpl implements CardStorage{
+public class CardStorageImpl implements CardStorage {
     private final Map<String, CardEntityStorage> cardList = new ConcurrentHashMap<>();
 
 
@@ -37,7 +37,7 @@ public class CardStorageImpl implements CardStorage{
     }
 
     @Override
-    public Map<String, CardEntityStorage> getCardList(){
+    public Map<String, CardEntityStorage> getCardList() {
         return cardList;
     }
 }

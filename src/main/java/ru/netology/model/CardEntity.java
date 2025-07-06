@@ -35,7 +35,7 @@ public class CardEntity {
      */
     private int balance;
 
-    public CardEntity(CardEntity other){
+    public CardEntity(CardEntity other) {
         this.currency = other.currency;
         this.cardNumber = other.cardNumber;
         this.cardValidTill = other.cardValidTill;

@@ -9,7 +9,7 @@ import java.util.Optional;
  * @author Андрей Кузавов
  * @version 1.0
  */
-public class CardEntityBuildImpl implements CardEntityBuilder{
+public class CardEntityBuildImpl implements CardEntityBuilder {
     private Currency currency = Currency.RUB;
     private String cardNumber;
     private String cardValidTill;
@@ -18,8 +18,8 @@ public class CardEntityBuildImpl implements CardEntityBuilder{
 
     @Override
     public CardEntityBuilder setCurrency(String currency) {
-        Optional<Currency> c = Arrays.stream(Currency.values()).filter(value->value.getCode().equals(currency)).findFirst();
-        if(c.isPresent()){
+        Optional<Currency> c = Arrays.stream(Currency.values()).filter(value -> value.getCode().equals(currency)).findFirst();
+        if (c.isPresent()) {
             this.currency = c.get();
         }
         return this;
